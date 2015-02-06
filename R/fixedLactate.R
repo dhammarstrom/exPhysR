@@ -1,4 +1,11 @@
+#' Calculate and plot lactate threshold based on a fixed lactate concentration
 #' @export
+#' 
+#' @param data A data frame with work intensity (e.g. watt) and lactate measurements
+#' @param workload.column A integer specifying the column with work intensity data, default=1. 
+#' @param lactate.column A integer specifying the column with lactate data, default=2.
+#' @param plot Logical specify whether to add plot or not. The plot shows data points with the model fit
+#' @param lactate A number specifying the lacate level at which you want to now the work intensity. 
 fixedLactate<-function(data, workload.column=1, lactate.column=2, plot=T, lactate=4){
   require(ggplot2)
   require(dplyr)

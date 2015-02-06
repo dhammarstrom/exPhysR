@@ -1,3 +1,4 @@
+#' @export
 fixedLactate<-function(data, workload.column=1, lactate.column=2, plot=T, lactate=4){
   require(ggplot2)
   require(dplyr)

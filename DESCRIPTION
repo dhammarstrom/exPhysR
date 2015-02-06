@@ -1,0 +1,13 @@
+Package: exPhysR
+Title: Analyse exercise physiology data with R
+Version: 0.1
+Authors@R: person("Daniel", "Hammarström", role = c("aut", "cre"),email = "daniel.hammarstrom@hil.no")
+Mantainer: Daniel Hammarström <daniel.hammarstrom@hil.no>
+Description: Analyse data from physiological tests. Lactate threshold tests.
+Depends: R (>= 3.1.2)
+Imports:
+      dplyr,
+      ggplot2,
+      tidyr
+License: GPL-2
+

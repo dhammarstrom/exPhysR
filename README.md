@@ -1,2 +1,2 @@
 # exPhysR - Exercise Physiology with R 
-The begining of a R package to analyze work/exercise physiology data.  
+The beginning of a R package to analyze work/exercise physiology data.  

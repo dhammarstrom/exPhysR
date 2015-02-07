@@ -18,6 +18,9 @@ fixedLactate(data, workload.column = 1, lactate.column = 2, plot = T,
 
 \item{lactate}{A number specifying the lacate level at which you want to now the work intensity.}
 }
+\value{
+Work intensity at a specified lactate concentration
+}
 \description{
 Calculate and plot lactate threshold based on a fixed lactate concentration
 }

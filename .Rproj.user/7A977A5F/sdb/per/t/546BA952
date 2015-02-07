@@ -1,0 +1,16 @@
+{
+    "contents" : "#' Calculate and plot lactate threshold based on a fixed lactate concentration\n#' @export\n#' \n#' @param data A data frame with work intensity (e.g. watt) and lactate measurements\n#' @param workload.column A integer specifying the column with work intensity data, default=1. \n#' @param lactate.column A integer specifying the column with lactate data, default=2.\n#' @param plot Logical specify whether to add plot or not. The plot shows data points with the model fit\n#' @param lactate A number specifying the lacate level at which you want to now the work intensity.\n#' @return Work intensity at a specified lactate concentration \n#' @import dplyr\n#' @import tidyr\n#' @import ggplot2\nfixedLactate<-function(data, workload.column=1, lactate.column=2, plot=T, lactate=4){\n\n  data<-data.frame(data)\n  \n  \n  \n  if(max(data[,lactate.column], na.rm=T)<lactate){\n        stop(paste(\"Desired lactate levels is outside measured range. Must be within \",\n                   min(data[,lactate.column], na.rm=T),\" - \",max(data[,lactate.column], na.rm=T),\n                   \" mmol/L.\", sep=\"\"))\n  }\n  \n  if(min(data[,lactate.column], na.rm=T)>lactate){\n        stop(paste(\"Desired lactate levels is outside measured range. Must be within \",\n                   min(data[,lactate.column], na.rm=T),\" - \",max(data[,lactate.column], na.rm=T),\n                   \" mmol/L.\", sep=\"\"))\n  }\n  \n  model <-lm(data[,lactate.column]~data[,workload.column]+I(data[,workload.column]^2)+I(data[,workload.column]^3))\n  poly.coefs <- model$coefficients\n  \n  fixed.lactate<- Re(polyroot(c(poly.coefs[1]-lactate,poly.coefs[2],poly.coefs[3],poly.coefs[4])))\n  \n  fixed.lactate<-max(fixed.lactate[fixed.lactate<=max(data[,workload.column])])\n  \n  if(plot==TRUE){\n\n    names(data)[workload.column]<-\"Workload\"\n    names(data)[lactate.column]<-\"Lactate\"\n    \n    segment<-data.frame(x=min(data[,workload.column], na.rm=T),\n                        xend=fixed.lactate,\n                        y=min(data[,lactate.column], na.rm=T),\n                        yend=lactate)\n    \n      plot<-data%>%\n        filter(!is.na(Lactate))%>%\n        ggplot(aes(Workload, Lactate))+\n        geom_point(size=4)+stat_smooth(se=F,\n                               method=\"lm\",\n                               formula=y~poly(x,3), color=\"red\")+\n          geom_segment(data=segment, aes(x=x,xend=xend,y=yend,yend=yend))+\n          geom_segment(data=segment, aes(x=xend,xend=xend,y=y,yend=yend))\n    \n    return(list(round(fixed.lactate,1), plot))\n      \n  }\n  \n  return(round(fixed.lactate,1))\n  \n  \n}\n",
+    "created" : 1423215121214.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "695469058",
+    "id" : "546BA952",
+    "lastKnownWriteTime" : 1423245139,
+    "path" : "C:/Users/706194/Dropbox/Research/Div projekt/exPhysR/exPhysR/R/fixedLactate.R",
+    "project_path" : "R/fixedLactate.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

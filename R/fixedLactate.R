@@ -1,15 +1,19 @@
-#' Calculate and plot lactate threshold based on a fixed lactate concentration
+#' Calculate and plot lactate marker based on a fixed lactate concentration
 #' @export
-#' 
+#' @description Calculates the workload at a specified fixed lactate concentration. Based on functions described by Newell et al. 2007 (see reference)
 #' @param data A data frame with work intensity (e.g. watt) and lactate measurements
-#' @param workload.column A integer specifying the column with work intensity data, default=1. 
-#' @param lactate.column A integer specifying the column with lactate data, default=2.
+#' @param workload.column An integer specifying the column with work intensity data, default=1. 
+#' @param lactate.column An integer specifying the column with lactate data, default=2.
 #' @param plot Logical specify whether to add plot or not. The plot shows data points with the model fit
 #' @param lactate A number specifying the lacate level at which you want to now the work intensity.
 #' @return Work intensity at a specified lactate concentration 
 #' @import dplyr
 #' @import tidyr
 #' @import ggplot2
+#' @references 
+#' Software for calculating blood lactate endurance markers. 
+#' John Newell , David Higgins , Niall Madden , James Cruickshank , Jochen Einbeck , Kenny McMillan , Roddy McDonald. 
+#' Journal of Sports Sciences, Vol. 25, Iss. 12, 2007
 fixedLactate<-function(data, workload.column=1, lactate.column=2, plot=T, lactate=4){
 
   data<-data.frame(data)

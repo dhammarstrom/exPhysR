@@ -2,7 +2,7 @@
 % Please edit documentation in R/fixedLactate.R
 \name{fixedLactate}
 \alias{fixedLactate}
-\title{Calculate and plot lactate threshold based on a fixed lactate concentration}
+\title{Calculate and plot lactate marker based on a fixed lactate concentration}
 \usage{
 fixedLactate(data, workload.column = 1, lactate.column = 2, plot = T,
   lactate = 4)
@@ -10,9 +10,9 @@ fixedLactate(data, workload.column = 1, lactate.column = 2, plot = T,
 \arguments{
 \item{data}{A data frame with work intensity (e.g. watt) and lactate measurements}
 
-\item{workload.column}{A integer specifying the column with work intensity data, default=1.}
+\item{workload.column}{An integer specifying the column with work intensity data, default=1.}
 
-\item{lactate.column}{A integer specifying the column with lactate data, default=2.}
+\item{lactate.column}{An integer specifying the column with lactate data, default=2.}
 
 \item{plot}{Logical specify whether to add plot or not. The plot shows data points with the model fit}
 
@@ -22,6 +22,11 @@ fixedLactate(data, workload.column = 1, lactate.column = 2, plot = T,
 Work intensity at a specified lactate concentration
 }
 \description{
-Calculate and plot lactate threshold based on a fixed lactate concentration
+Calculates the workload at a specified fixed lactate concentration. Based on functions described by Newell et al. 2007 (see reference)
+}
+\references{
+Software for calculating blood lactate endurance markers.
+John Newell , David Higgins , Niall Madden , James Cruickshank , Jochen Einbeck , Kenny McMillan , Roddy McDonald.
+Journal of Sports Sciences, Vol. 25, Iss. 12, 2007
 }
 

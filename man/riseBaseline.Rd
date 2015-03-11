@@ -4,8 +4,8 @@
 \alias{riseBaseline}
 \title{Calculate and plot lactate marker based on a fixed rise from baseline lactate}
 \usage{
-riseBaseline(data, workload.column = 1, lactate.column = 2, plot = T,
-  rise = 1)
+riseBaseline(data, workload.column = 1, lactate.column = 2,
+  rise.from.baseline = 1, estimate = T, plot = T)
 }
 \arguments{
 \item{data}{A data frame with work intensity (e.g. watt) and lactate measurements}
@@ -14,12 +14,14 @@ riseBaseline(data, workload.column = 1, lactate.column = 2, plot = T,
 
 \item{lactate.column}{An integer specifying the column with lactate data, default=2.}
 
-\item{plot}{Logical specify whether to add plot or not. The plot shows data points with the model fit}
+\item{rise.from.baseline}{A numeric specifying the rise frome baseline, default=1}
 
-\item{lactate}{A number specifying the lacate level at which you want to now the work intensity.}
+\item{estimate}{A logical specifying if baseline should be estimated from the model fit or be defined by the lowest measured value, default=TRUE}
+
+\item{plot}{Logical specify whether to add plot or not. The plot shows data points with the model fit}
 }
 \value{
-Work intensity at a specified lactate concentration
+Work intensity at a specified rise from baseline lactate concentration
 }
 \description{
 Calculates the workload at a specified fixed lactate concentration. Based on functions described by Newell et al. 2007 (see reference)

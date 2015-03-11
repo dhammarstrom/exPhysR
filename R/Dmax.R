@@ -1,4 +1,6 @@
-#' Calculate the 
+#' Calculate the workload corresponding to the point with the maximum perpendicular
+#' from a line joining the first and last lactate measurments to the estimated lactate 
+#' curve.
 #' @export
 #' @description Calculates the workload at the maximum of the second derivate of the 
 #' lactate curve. Based on functions described and written by Newell et al. 2007 (see reference)

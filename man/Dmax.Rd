@@ -2,7 +2,9 @@
 % Please edit documentation in R/Dmax.R
 \name{Dmax}
 \alias{Dmax}
-\title{Calculate the}
+\title{Calculate the workload corresponding to the point with the maximum perpendicular
+from a line joining the first and last lactate measurments to the estimated lactate
+curve.}
 \usage{
 Dmax(data, workload.column = 1, lactate.column = 2, plot = T)
 }

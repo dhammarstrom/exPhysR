@@ -3,6 +3,7 @@
 export(D2Lmax)
 export(Dmax)
 export(fixedLactate)
+export(riseBaseline)
 import(dplyr)
 import(ggplot2)
 import(pspline)

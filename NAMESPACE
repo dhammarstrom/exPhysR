@@ -2,6 +2,7 @@
 
 export(D2Lmax)
 export(Dmax)
+export(LT)
 export(fixedLactate)
 export(riseBaseline)
 import(dplyr)

@@ -45,6 +45,8 @@ D2Lmax<-function(data, workload.column=1, lactate.column=2, plot=T){
       grid <- cbind(lactate.grid, fit.deriv.2)
       d2lmax <- max(lactate.grid[peaks(fit.deriv.2, span = 3)])
       
+      
+      
    return(d2lmax)   
       
       
